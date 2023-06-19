@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title="Contact Details">
+        <div class="slds-m-around_medium">
+            <lightning-record-edit-form>
+                <lightning-input class="fields" label="Email" type="email" pattern="[A-Za-z._-]+@[a-z0-9-]+\.[a-z]{2,}$" message-when-pattern-mismatch="Please enter a valid email" onchange={handleEmailChange}></lightning-input>
+                <lightning-input class="fields" label="Address Line 1" required type="text" onchange={handleAddress1Change}></lightning-input>
+                <lightning-input class="fields" label="Address Line 2" type="text" onchange={handleAddress2Change}></lightning-input>
+                <lightning-input class="fields" label="Contact Number" type="tel" required pattern="[0-9]{10}" message-when-pattern-mismatch="Please enter a valid phone number" onchange={handleContactNumberChange}></lightning-input>
+                <lightning-combobox class="fields" label="State" placeholder="Select State" options={stateOptions} onchange={handleStateChange}></lightning-combobox>
+                <lightning-combobox class="fields" label="City" placeholder="Select City" options={cityOptions} onchange={handleCityChange}></lightning-combobox>
+                <lightning-input class="fields" label="Pincode" type="tel" required pattern="[0-9]{6}" message-when-pattern-mismatch="Please enter a valid pincode" onchange={handlePinChange}></lightning-input>
+                <lightning-input lclass="fields" label="CSV File" accept=".csv" multiple="false" onchange={handleCSV}></lightning-input>
+                <lightning-datatable key-field="key" hide-checkbox-column data={rows} columns={columns}></lightning-datatable>
+                <div class="slds-m-top_medium">
+                    <lightning-button variant="brand" label="Save" onclick={handleSave}></lightning-button>
+                    <lightning-button label="Reset" type="reset" onclick={handleReset}></lightning-button>
+                    <lightning-button label="Previous" onclick={handlePrevious}></lightning-button>
+                    <lightning-button label="Import CSV" onclick={handleImport}></lightning-button>
+                  </div>
+            </lightning-record-edit-form>
+        </div>
+    </lightning-card>
+</template>
