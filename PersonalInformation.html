@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title="Personal Information" >
+        <div class="slds-m-around_medium">
+            <lightning-record-edit-form>
+            <lightning-input class="fields" label="First Name" name='firstName' required type="text" value={firstName} pattern="[a-zA-Z]+" message-when-pattern-mismatch="Please enter valid name" onchange={handleFirstNameChange}></lightning-input>
+            <lightning-input class="fields" label="Middle Name" name='middleName' type="text" value={MiddleName} pattern="[a-zA-Z]+" message-when-pattern-mismatch="Please enter valid name" onchange={handleMiddleNameChange}></lightning-input>
+            <lightning-input class="fields" label="Last Name" name='lastname' required type="text" value={LastName} pattern="[a-zA-Z]+" message-when-pattern-mismatch="Please enter valid name" onchange={handleLastNameChange}></lightning-input>
+            <lightning-input class="fields" label="Date of Birth" name='dob' required type="date" value={dob} onchange={handleDobChange}></lightning-input>
+            <div>
+                <lightning-radio-group class="fields" label="Gender" options={genderOptions} value={selectedGender} onchange={handleGenderChange}></lightning-radio-group>
+              </div>
+            <lightning-button label="Save" onclick={handleSave} variant="brand"></lightning-button>
+            <lightning-button label="Reset" type="reset" onclick={handleReset}></lightning-button>
+            <lightning-button label="Next" onclick={handleNext}></lightning-button>
+        </lightning-record-edit-form>
+        </div>
+    </lightning-card>
+</template>
